@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_testm2o","testm2o","model_testm2o","sales_team.group_sale_salesman",1,1,1,1
+"access_testo2m","testo2m","model_testo2m","sales_team.group_sale_salesman",1,1,1,1

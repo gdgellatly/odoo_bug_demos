@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form.testo2m</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="after">
+                    <field name="testm2o"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="testm2o">
+            <field name="name">testm2o</field>
+            <field name="model">testm2o</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="name"/>
+                <field name="testo2m" mode="tree">
+                    <tree string="Testo2m" editable="bottom">
+                        <field name="name"/>
+                        <field name="qty"/>
+                        <field name="length"/>
+                    </tree>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="testo2m">
+            <field name="name">testo2m</field>
+            <field name="model">testo2m</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <tree string="Testo2m" editable="bottom">
+                    <field name="name"/>
+                    <field name="qty"/>
+                    <field name="length"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
