@@ -16,7 +16,7 @@ Search in variant
 Order variants correctly
 Custom partcodes
     """,
-    'data': [],
+    'data': ['views/simple_variant_product_code.xml'],
     'qweb': [],
     'installable': True,
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_code_generator" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.code.generator</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+        </record>
+        <record id="product_code_generator_view" model="ir.ui.view">
+            <field name="name">product.code.generator.form</field>
+            <field name="model">product.code.generator</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Product Code Generator">
+                    <p class="oe_grey">
+                        The format field accepts standard Odoo templating syntax and has access
+                        to both the product and product template. e.g.
+                        TEST${p.variant_code}${t.id} would generate TESTGLD44
+                    </p>
+                    <group>
+                        <field name="product_template" invisible="1"/>
+                        <field name="code_format" placeholder="e.g. TEST${p.variant_code}${t.id}"/>
+                    </group>
+
+                    <footer>
+                        <button type="object" name="generate_code" string="Generate Product Codes" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_template_only_form_view" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <div name="button_box" position="inside">
+                    <button name="%(product_variant_extended.product_code_generator)d" type="action"
+                            attrs="{'invisible': [('product_variant_count', '&lt;=', 1)]}" class="oe_stat_button"
+                            groups="product.group_product_variant" string="Product Codes"
+                    icon="fa-gears">
+                    </button>
+                </div>
+            </field>
+        </record>
+        <record id="product_attribute_value_view_tree" model="ir.ui.view">
+            <field name="inherit_id" ref="product.variants_tree_view" />
+            <field name="model">product.attribute.value</field>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
