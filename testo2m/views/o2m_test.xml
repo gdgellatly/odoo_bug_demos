@@ -16,7 +16,6 @@
         <record model="ir.ui.view" id="testm2o">
             <field name="name">testm2o</field>
             <field name="model">testm2o</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <field name="name"/>
                 <field name="testo2m" mode="tree">
@@ -32,7 +31,6 @@
         <record model="ir.ui.view" id="testo2m">
             <field name="name">testo2m</field>
             <field name="model">testo2m</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <tree string="Testo2m" editable="bottom">
                     <field name="name"/>

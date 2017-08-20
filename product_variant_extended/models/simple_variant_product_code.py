@@ -59,6 +59,11 @@ class ProductCodeGenerator(models.TransientModel):
                                        default=_get_template_id)
 
     @api.multi
+    def get_attribute(self, attribute, delimiter='-', value=True):
+        if isinstance(attribute, (str, basestring, unicode)):
+            pass
+
+    @api.multi
     def _set_product_template_variables(self, record):
         return {'t': record.product_template}
 
