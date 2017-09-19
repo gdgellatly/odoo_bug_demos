@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_assets_common" inherit_id="web.report_assets_common" active="True" name="Subst Error">
+        <xpath expr="link[last()]" position="after">
+            <link href="/subst_error/static/src/less/layout_clean.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+    </template>
+
+    <template id="external_layout_clean" inherit_id="web.external_layout_clean">
+        <xpath expr="//div[hasclass('o_clean_header')]/div" position="before" >
+                <h1><span t-field="company.name" /></h1>
+        </xpath>
+    </template>
+
+</odoo>
