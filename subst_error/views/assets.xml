@@ -9,6 +9,7 @@
     <template id="external_layout_clean" inherit_id="web.external_layout_clean">
         <xpath expr="//div[hasclass('o_clean_header')]/div" position="before" >
                 <h1><span t-field="company.name" /></h1>
+                <h1 style="font-family: 'Work Sans';"><span t-field="company.name" /></h1>
         </xpath>
     </template>
 
